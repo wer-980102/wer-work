@@ -1,0 +1,39 @@
+
+server:
+  port: 8000
+spring:
+  application:
+    name: register-gateway
+
+
+  cloud:
+    gateway:
+      routes:
+        #        - id: test_after_route
+        #          uri: http://localhost:9000
+        #          predicates:
+        #            - Between=2020-05-07T19:52:47.789+08:00,2022-05-07T19:52:47.789+08:00
+        #
+        #        - id: test_cookie_route
+        #          uri: http://localhost:7000
+        #          predicates:
+        #          - Method=get
+        #        - id: path_route
+        #          uri: http://localhost:9000
+        #          predicates:
+        #            - Path=/9000/{segment}
+        #        - id: path_route_1
+        #          uri: http://localhost:7000
+        #          predicates:
+        #            - Path=/7000/{segment}
+
+        - id: test_query_route
+          uri: lb://register-nacos
+          predicates:
+            - Query=shadow
+        # filters:
+       #     - Av=true
+
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
