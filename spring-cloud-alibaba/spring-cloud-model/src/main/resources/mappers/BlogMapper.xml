@@ -67,4 +67,8 @@
       </if>
     </trim>
   </insert>
+
+  <select id="selectBlog" resultMap="BaseResultMap">
+    select * from blog where status ='1'
+  </select>
 </mapper>

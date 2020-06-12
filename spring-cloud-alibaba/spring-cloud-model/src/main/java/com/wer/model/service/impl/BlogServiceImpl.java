@@ -1,9 +1,9 @@
-package com.wer.blog.service.impl;
+package com.wer.model.service.impl;
 
-import com.wer.blog.feign.BlogFeign;
-import com.wer.blog.service.BlogService;
 import com.wer.common.domain.common.ResponseVo;
 import com.wer.model.entity.Blog;
+import com.wer.model.mapper.BlogMapper;
+import com.wer.model.service.BlogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,11 +15,11 @@ import java.util.List;
 public class BlogServiceImpl  implements BlogService {
 
     @Autowired
-    private BlogFeign blogFeign;
+    private BlogMapper blogMapper;
 
 
     @Override
-    public ResponseVo<List<Blog>> selectBlog() {
-        return ResponseVo.success(blogFeign.selectBlog());
+    public List<Blog> selectBlog() {
+        return blogMapper.selectBlog();
     }
 }
