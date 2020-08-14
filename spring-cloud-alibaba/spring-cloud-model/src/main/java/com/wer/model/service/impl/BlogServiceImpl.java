@@ -1,6 +1,5 @@
 package com.wer.model.service.impl;
 
-import com.wer.common.domain.common.ResponseVo;
 import com.wer.model.entity.Blog;
 import com.wer.model.mapper.BlogMapper;
 import com.wer.model.service.BlogService;
@@ -18,7 +17,6 @@ public class BlogServiceImpl  implements BlogService {
     private BlogMapper blogMapper;
 
 
-    @Override
     public List<Blog> selectBlog() {
         return blogMapper.selectBlog();
     }
